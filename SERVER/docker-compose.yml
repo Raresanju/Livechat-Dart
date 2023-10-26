@@ -1,0 +1,18 @@
+version: '3.7'
+services:
+
+  livechat_api:
+    build: 
+      context: ./
+      # args:
+        # ENV_FILE: .env.prod
+    ports:
+      - 8000:8000
+    depends_on:
+      - mongodb
+
+  mongodb:
+    restart: always
+    image: mongo:latest
+    ports:
+      - 27017:27017
